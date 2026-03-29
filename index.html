@@ -2,186 +2,280 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookedSolid Pro | Volume Data Platform for Call Centers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <title>BookedSolid Pro | Replace 4 Data Vendors With One Platform</title>
   <meta name="description" content="One platform replaces your data vendor, skip trace service, and DNC scrub. 85+ data fields per record including credit score and income. No contracts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ============================================
-       SECTION 1: HERO — Situational Hook + Headline
-       Haynes: Be Direct. Save Their Time.
-       Rosier: Situational hook, not identity hook.
-       ============================================ -->
-  <section class="hero">
-    <div class="container">
-      <nav class="nav">
-        <div class="logo">BookedSolid<span>Pro</span></div>
-        <a href="#qualify" class="nav-cta">See If You Qualify</a>
-      </nav>
+  <!-- HERO — Two-column: Headline left, Form right (Juggernaut pattern) -->
+  <section class="hero" id="top">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-orb hero-bg-orb--1"></div>
+    <div class="hero-bg-orb hero-bg-orb--2"></div>
 
-      <div class="hero-content">
-        <p class="hero-eyebrow">For operations running 5+ agents and 10,000+ records/month</p>
-        <h1>You uploaded 50,000 records Monday.<br>By Wednesday, half were dead.</h1>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="logo">BookedSolid<span class="logo-accent">Pro</span></div>
+        <a href="#qualify" class="nav-cta">See If You Qualify <span class="nav-arrow">&rarr;</span></a>
+      </div>
+    </nav>
+
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Volume Data Platform &mdash; Built for Call Centers
+        </div>
+        <h1>Replace <span class="text-accent">4 Data Vendors</span> With One Platform.</h1>
         <p class="hero-sub">
-          Your team burned through 60% of them. Half were disconnected. Your caller IDs are getting flagged.
-          And you're about to reorder from the same vendor next month.
+          You uploaded 50,000 records Monday. By Wednesday, half were disconnected.
+          Your caller IDs are flagged. And you're about to reorder from the same vendor.
         </p>
-        <p class="hero-sub hero-sub--bold">What if the next list was different?</p>
-        <a href="#qualify" class="btn btn--primary btn--lg">See If You Qualify</a>
-        <p class="hero-micro">Takes 60 seconds. No sales call unless you want one.</p>
+
+        <div class="hero-chips">
+          <div class="chip"><span class="chip-check">&check;</span> 85+ Data Fields Per Record</div>
+          <div class="chip"><span class="chip-check">&check;</span> Credit Score &amp; Income Included</div>
+          <div class="chip"><span class="chip-check">&check;</span> DNC Status on Every Record</div>
+          <div class="chip"><span class="chip-check">&check;</span> No Contracts. Month-to-Month.</div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" data-target="136">0</div>
+            <div class="stat-label">Million Records</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-target="85">0</div>
+            <div class="stat-label">Data Fields</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num-prefix">$</div>
+            <div class="stat-num" data-target="0">0</div>
+            <div class="stat-label">Data Cost to Us</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="form-card" id="qualify">
+          <div class="form-card-glow"></div>
+          <div class="form-card-bar"></div>
+          <h3 class="form-title">See If You Qualify for Volume Pricing</h3>
+          <p class="form-subtitle">4 questions. 60 seconds. No sales call unless you want one.</p>
+
+          <form class="qualify-form" id="qualify-form">
+            <div class="form-progress">
+              <div class="form-progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="form-step active" data-step="1">
+              <label>How many agents on your outbound team?</label>
+              <div class="form-options">
+                <button type="button" class="form-option" data-value="1-4">1 &ndash; 4</button>
+                <button type="button" class="form-option" data-value="5-10">5 &ndash; 10</button>
+                <button type="button" class="form-option" data-value="11-25">11 &ndash; 25</button>
+                <button type="button" class="form-option" data-value="25+">25+</button>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <label>How many records do you need per month?</label>
+              <div class="form-options">
+                <button type="button" class="form-option" data-value="under-10k">Under 10,000</button>
+                <button type="button" class="form-option" data-value="10k-50k">10K &ndash; 50K</button>
+                <button type="button" class="form-option" data-value="50k-100k">50K &ndash; 100K</button>
+                <button type="button" class="form-option" data-value="100k+">100,000+</button>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <label>Current monthly data spend?</label>
+              <div class="form-options">
+                <button type="button" class="form-option" data-value="under-1k">Under $1,000</button>
+                <button type="button" class="form-option" data-value="1k-2.5k">$1K &ndash; $2.5K</button>
+                <button type="button" class="form-option" data-value="2.5k-5k">$2.5K &ndash; $5K</button>
+                <button type="button" class="form-option" data-value="5k+">$5,000+</button>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="4">
+              <label>What industry are you in?</label>
+              <div class="form-options form-options--3col">
+                <button type="button" class="form-option" data-value="insurance">Insurance</button>
+                <button type="button" class="form-option" data-value="solar">Solar</button>
+                <button type="button" class="form-option" data-value="mortgage">Mortgage</button>
+                <button type="button" class="form-option" data-value="roofing">Roofing</button>
+                <button type="button" class="form-option" data-value="re-investing">RE Investing</button>
+                <button type="button" class="form-option" data-value="other">Other</button>
+              </div>
+            </div>
+
+            <div class="form-result" id="result-qualified">
+              <div class="result-icon">&check;</div>
+              <h3>You qualify for the Volume Platform.</h3>
+              <p>Based on your operation size, we can likely cut your per-record cost while giving you 10x the data fields.</p>
+              <div class="result-actions">
+                <a href="#" class="btn btn--primary btn--lg">Book a 15-Min Call <span>&rarr;</span></a>
+                <a href="#" class="btn btn--outline">Access Platform Now</a>
+              </div>
+            </div>
+
+            <div class="form-result" id="result-redirect">
+              <h3>Our standard plan is a better fit.</h3>
+              <p>Self-serve platform at $0.04/record with no minimums. Same data quality, built for smaller operations.</p>
+              <a href="https://solidbookedpro.com" class="btn btn--outline">Go to Standard Plan &rarr;</a>
+            </div>
+
+            <div class="form-footer">
+              <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><rect x="1" y="6" width="10" height="7" rx="1.5" stroke="#5a6a7a" stroke-width="1.5"/><path d="M3 6V4a3 3 0 016 0v2" stroke="#5a6a7a" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span>Your information is 100% secure.</span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 2: THE PROBLEM — Waste Math
-       Haynes: Messaging controls targeting.
-       Hormozi: Agitate with specific math.
-       ============================================ -->
+  <!-- SOCIAL PROOF NOTIFICATION (Scalify/Juggernaut pattern) -->
+  <div class="social-notification" id="social-notification">
+    <div class="notif-dot"></div>
+    <div class="notif-text">
+      <strong>Marcus T.</strong> from Tampa just qualified for volume pricing
+    </div>
+    <button class="notif-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- VSSL VIDEO SECTION (Closers.io / Botify pattern — centered, prominent) -->
+  <section class="vssl">
+    <div class="container">
+      <p class="vssl-eyebrow">Watch the 3-minute breakdown</p>
+      <h2 class="vssl-heading">How Call Centers Are Replacing 4 Vendors With One Platform</h2>
+      <div class="vssl-wrapper">
+        <div class="vssl-placeholder" id="vssl-video">
+          <div class="vssl-play">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+              <circle cx="36" cy="36" r="36" fill="rgba(0,212,170,0.15)"/>
+              <circle cx="36" cy="36" r="28" fill="rgba(0,212,170,0.25)"/>
+              <polygon points="30,22 52,36 30,50" fill="#00D4AA"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <a href="#qualify" class="btn btn--primary btn--lg vssl-cta">See If You Qualify <span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- WASTE MATH (LeO/Juggernaut animated counters pattern) -->
   <section class="problem">
     <div class="container">
-      <h2 class="section-label">The math your vendor won't show you</h2>
+      <p class="section-eyebrow">The math your vendor won't show you</p>
+      <h2 class="section-heading">Your Data Is Costing You More Than You Think</h2>
+
       <div class="waste-grid">
         <div class="waste-card">
-          <div class="waste-number">40%</div>
+          <div class="waste-number"><span class="counter" data-target="40">0</span>%</div>
           <p class="waste-desc">of purchased phone lists are dead on arrival</p>
-          <p class="waste-source">Industry average across all major vendors</p>
+          <p class="waste-source">Industry average across major vendors</p>
         </div>
-        <div class="waste-card">
-          <div class="waste-number">$36K</div>
+        <div class="waste-card waste-card--highlight">
+          <div class="waste-number">$<span class="counter" data-target="36">0</span>K</div>
           <p class="waste-desc">per month wasted on disconnected numbers</p>
           <p class="waste-source">Real math from a 40-agent call center</p>
         </div>
         <div class="waste-card">
-          <div class="waste-number">$0</div>
-          <p class="waste-desc">refunded by vendors whose terms say "accuracy not guaranteed"</p>
-          <p class="waste-source">Page 7, Paragraph 14, Section 3(b) of their TOS</p>
+          <div class="waste-number">$<span class="counter" data-target="0">0</span></div>
+          <p class="waste-desc">refunded by vendors whose TOS says "accuracy not guaranteed"</p>
+          <p class="waste-source">Page 7, Paragraph 14, Section 3(b)</p>
         </div>
       </div>
 
       <blockquote class="pull-quote">
-        "Customer purchased mortgage lead data, manually tested 1,000+ calls out of 6,000 contacts with a <strong>100% failure rate</strong> &mdash; all disconnected/wrong numbers. Company admitted 'internal data sorting issue.'"
+        <span class="quote-mark">&ldquo;</span>
+        Customer purchased mortgage lead data, manually tested 1,000+ calls out of 6,000 contacts with a <strong>100% failure rate</strong> &mdash; all disconnected/wrong numbers. Company admitted 'internal data sorting issue.'
         <cite>&mdash; BBB Complaint, Data Axle</cite>
       </blockquote>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 3: VSSL PLACEHOLDER
-       Haynes: High Ticket Call Funnel = VSSL on page
-       Rosier: 4-Step Clarify script
-       ============================================ -->
-  <section class="vssl">
-    <div class="container">
-      <div class="vssl-wrapper">
-        <div class="vssl-placeholder" id="vssl-video">
-          <!-- Replace with actual VSSL video embed -->
-          <div class="vssl-play">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-              <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.15)"/>
-              <polygon points="32,24 58,40 32,56" fill="#fff"/>
-            </svg>
-          </div>
-          <p class="vssl-caption">Watch: How call centers are replacing 4 vendors with one platform (3 min)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 4: DAMAGING ADMISSION + CONSOLIDATION
-       Hormozi: "BAD + BAD + BAD + BUT + GOOD"
-       All 3 mentors: Consolidation IS the Grand Slam
-       ============================================ -->
+  <!-- DAMAGING ADMISSION (Hormozi pattern) -->
   <section class="admission">
     <div class="container">
-      <div class="admission-content">
+      <div class="admission-card">
         <h2>Let's be honest.</h2>
-        <div class="admission-text">
-          <p>We're not the biggest name in data. We don't do intent leads. We don't do live transfers. We don't have a Super Bowl ad or a booth at every conference.</p>
-          <p class="admission-but"><strong>But.</strong></p>
-          <p>85 data points per record &mdash; including credit score range and household income. Phone numbers verified. DNC status on every record. One platform that replaces your data vendor, your skip trace service, your DNC scrub, and your filtering tool.</p>
-          <p><strong>One login. One price. No contracts.</strong></p>
-        </div>
+        <p>We're not the biggest name in data. We don't do intent leads. We don't do live transfers. We don't have a Super Bowl ad or a booth at every conference.</p>
+        <div class="admission-but">But.</div>
+        <p>85 data points per record &mdash; including credit score range and household income. Phone numbers verified. DNC status on every record. One platform that replaces your data vendor, your skip trace service, your DNC scrub, and your filtering tool.</p>
+        <p class="admission-bold">One login. One price. No contracts.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 5: CONSOLIDATION COMPARISON TABLE
-       Hormozi: Grand Slam Offer — stack what they pay 4 vendors for
-       Haynes: Save Their Time (Rule #2)
-       ============================================ -->
+  <!-- OLD WAY vs NEW WAY (Botify pattern) -->
   <section class="comparison">
     <div class="container">
-      <h2 class="section-label">What you're paying for today vs. what you could pay</h2>
-      <div class="comparison-table-wrap">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>What You Need</th>
-              <th>Current Stack</th>
-              <th>Cost</th>
-              <th class="highlight-col">BSP Volume</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Property + Owner Data</td>
-              <td>ListSource / ATTOM</td>
-              <td>$0.15 &ndash; $0.31/record</td>
-              <td class="highlight-col" rowspan="4">
-                <div class="bsp-stack">
-                  <div class="bsp-stack-price">$0.04<span>/record</span></div>
-                  <div class="bsp-stack-note">Everything included.<br>85+ data fields.</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Skip Trace / Phone Append</td>
-              <td>BatchData / SkipForce</td>
-              <td>$0.02 &ndash; $0.15/record</td>
-            </tr>
-            <tr>
-              <td>DNC Status Check</td>
-              <td>Separate DNC service</td>
-              <td>$0.002 &ndash; $0.005/record</td>
-            </tr>
-            <tr>
-              <td>Filtering Platform</td>
-              <td>PropStream / BatchLeads</td>
-              <td>$99 &ndash; $699/month</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2"><strong>Typical total at 50K records</strong></td>
-              <td><strong class="old-price">$10,000 &ndash; $25,000+</strong></td>
-              <td class="highlight-col"><strong class="new-price">$2,000</strong></td>
-            </tr>
-          </tfoot>
-        </table>
+      <p class="section-eyebrow">The consolidation play</p>
+      <h2 class="section-heading">Stop Paying 4 Vendors for What 1 Platform Does</h2>
+
+      <div class="comparison-cols">
+        <div class="compare-col compare-col--old">
+          <div class="compare-header">
+            <span class="compare-icon compare-icon--x">&times;</span>
+            The Old Way
+          </div>
+          <ul>
+            <li><strong>Property Data:</strong> ListSource &mdash; $0.15-$0.31/record</li>
+            <li><strong>Skip Trace:</strong> BatchData &mdash; $0.02-$0.15/record</li>
+            <li><strong>DNC Scrub:</strong> Separate service &mdash; $0.002-$0.005/record</li>
+            <li><strong>Filtering:</strong> PropStream &mdash; $99-$699/month</li>
+          </ul>
+          <div class="compare-total">
+            <span>50K records/mo:</span>
+            <strong>$10,000 &ndash; $25,000+</strong>
+          </div>
+        </div>
+
+        <div class="compare-vs">VS</div>
+
+        <div class="compare-col compare-col--new">
+          <div class="compare-header">
+            <span class="compare-icon compare-icon--check">&check;</span>
+            BookedSolid Pro
+          </div>
+          <ul>
+            <li>Property + owner data &mdash; <strong>included</strong></li>
+            <li>Phone + email append &mdash; <strong>included</strong></li>
+            <li>DNC status on every record &mdash; <strong>included</strong></li>
+            <li>85+ filterable fields &mdash; <strong>included</strong></li>
+          </ul>
+          <div class="compare-total compare-total--new">
+            <span>50K records/mo:</span>
+            <strong>$2,000</strong>
+          </div>
+        </div>
       </div>
-      <p class="comparison-footnote">We're the data broker. No middleman markup. That's why one platform can do what four vendors charge you separately for.</p>
+
+      <p class="comparison-footnote">We're the data broker. No middleman markup. That's why one platform replaces four.</p>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 6: WHAT'S IN EVERY RECORD
-       85+ fields = the real differentiator
-       ============================================ -->
+  <!-- DATA FIELDS (LeO floating cards pattern) -->
   <section class="fields">
     <div class="container">
-      <h2 class="section-label">What you get in every record</h2>
-      <p class="fields-intro">Most skip trace vendors give you 3-5 fields. We give you 85+. Here's a sample.</p>
+      <p class="section-eyebrow">What's in every record</p>
+      <h2 class="section-heading">85+ Data Fields. Not 3.</h2>
+      <p class="fields-intro">Most skip trace vendors give you name, phone, address. We give you everything.</p>
 
       <div class="fields-grid">
-        <div class="field-group">
+        <div class="field-card">
+          <div class="field-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
           <h3>Contact</h3>
           <ul>
             <li>Full name</li>
@@ -191,7 +285,10 @@
             <li>DNC status</li>
           </ul>
         </div>
-        <div class="field-group">
+        <div class="field-card field-card--highlight">
+          <div class="field-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
           <h3>Financial</h3>
           <ul>
             <li>Credit score range</li>
@@ -200,8 +297,12 @@
             <li>Mortgage balance</li>
             <li>Loan type &amp; rate</li>
           </ul>
+          <div class="field-badge">Nobody else at $0.04</div>
         </div>
-        <div class="field-group">
+        <div class="field-card">
+          <div class="field-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
           <h3>Property</h3>
           <ul>
             <li>Home value (AVM)</li>
@@ -211,7 +312,10 @@
             <li>Lot size</li>
           </ul>
         </div>
-        <div class="field-group">
+        <div class="field-card">
+          <div class="field-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
           <h3>Demographics</h3>
           <ul>
             <li>Age range</li>
@@ -222,37 +326,30 @@
           </ul>
         </div>
       </div>
-
-      <p class="fields-callout">
-        Credit score + income at $0.04/record. <strong>Nobody else does this at this price.</strong>
-      </p>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 7: SOCIAL PROOF — Real Quotes
-       Haynes: Build Trust Rapidly (Rule #3)
-       Rosier: Trust Recession — need demonstration
-       ============================================ -->
+  <!-- SOCIAL PROOF — Negative then positive (Viral Coach case study pattern) -->
   <section class="proof">
     <div class="container">
-      <h2 class="section-label">What operators are saying about their old vendors</h2>
+      <p class="section-eyebrow">What operators say about their old vendors</p>
+      <h2 class="section-heading">The Trust Recession Is Real</h2>
+
       <div class="proof-grid">
-        <div class="proof-card proof-card--negative">
-          <p class="proof-quote">"More than 60% of the numbers that I'm getting back are bad numbers."</p>
-          <p class="proof-source">&mdash; Skip trace user, BiggerPockets</p>
+        <div class="proof-card proof-card--neg">
+          <div class="proof-stars proof-stars--bad">&#9733;&#9734;&#9734;&#9734;&#9734;</div>
+          <p>"More than 60% of the numbers that I'm getting back are bad numbers."</p>
+          <cite>&mdash; Skip trace user, BiggerPockets</cite>
         </div>
-        <div class="proof-card proof-card--negative">
-          <p class="proof-quote">"Those lists are sold and resold numerous times over and over again for the same data."</p>
-          <p class="proof-source">&mdash; BiggerPockets Forum</p>
+        <div class="proof-card proof-card--neg">
+          <div class="proof-stars proof-stars--bad">&#9733;&#9734;&#9734;&#9734;&#9734;</div>
+          <p>"Out of $400 worth of leads, not ONE genuine appointment."</p>
+          <cite>&mdash; 39-year veteran insurance agent</cite>
         </div>
-        <div class="proof-card proof-card--negative">
-          <p class="proof-quote">"Out of $400 worth of leads, not ONE genuine appointment."</p>
-          <p class="proof-source">&mdash; 39-year veteran insurance agent</p>
-        </div>
-        <div class="proof-card proof-card--negative">
-          <p class="proof-quote">"The company gets more and more greedier. They have raised their prices double over a few months."</p>
-          <p class="proof-source">&mdash; BBB Review, BatchLeads</p>
+        <div class="proof-card proof-card--neg">
+          <div class="proof-stars proof-stars--bad">&#9733;&#9734;&#9734;&#9734;&#9734;</div>
+          <p>"100% failure rate &mdash; all disconnected/wrong numbers."</p>
+          <cite>&mdash; BBB Complaint, Data Axle</cite>
         </div>
       </div>
 
@@ -261,75 +358,72 @@
       </div>
 
       <div class="proof-grid">
-        <div class="proof-card proof-card--positive">
-          <p class="proof-quote">"9 times out of 10 I can actually get ahold of the owner."</p>
-          <p class="proof-source">&mdash; Agent after switching to verified data</p>
+        <div class="proof-card proof-card--pos">
+          <div class="proof-stars proof-stars--good">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"9 times out of 10 I can actually get ahold of the owner."</p>
+          <cite>&mdash; Agent, after switching to verified data</cite>
         </div>
-        <div class="proof-card proof-card--positive">
-          <p class="proof-quote">"Pipeline went from $100K to $300K per week after switching data sources."</p>
-          <p class="proof-source">&mdash; Meritt, after vendor switch</p>
+        <div class="proof-card proof-card--pos">
+          <div class="proof-stars proof-stars--good">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Pipeline went from $100K to $300K per week."</p>
+          <cite>&mdash; Meritt, after vendor switch</cite>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 8: THE 8 MILE PRINCIPLE — Objection Handling
-       Rosier: Eliminate every "no" before they say it.
-       ============================================ -->
+  <!-- OBJECTIONS — 8 Mile Principle -->
   <section class="objections">
     <div class="container">
-      <h2 class="section-label">Every reason you'd say no &mdash; answered.</h2>
+      <p class="section-eyebrow">Every reason you'd say no</p>
+      <h2 class="section-heading">Answered.</h2>
 
-      <div class="objection-list">
-        <div class="objection">
-          <h3>"How do I know the numbers actually work?"</h3>
-          <p>Every phone number is verified before export. Dead and disconnected numbers are excluded from your CSV automatically. You don't do anything &mdash; the system does it.</p>
+      <div class="objection-grid">
+        <div class="objection-card">
+          <h3>"How do I know the numbers work?"</h3>
+          <p>Every phone number is verified before export. Dead numbers are excluded from your CSV automatically.</p>
         </div>
-        <div class="objection">
+        <div class="objection-card">
           <h3>"I don't want to switch platforms."</h3>
-          <p>You don't have to. Export a CSV. Upload it to whatever dialer you already use. Mojo, PhoneBurner, Convoso, ReadyMode &mdash; it all works.</p>
+          <p>Export a CSV. Upload to whatever dialer you use. Mojo, PhoneBurner, Convoso &mdash; it all works.</p>
         </div>
-        <div class="objection">
-          <h3>"I'm in a contract with my current vendor."</h3>
-          <p>We don't do contracts. Month-to-month. Test us alongside your current vendor. When you're ready, consolidate.</p>
+        <div class="objection-card">
+          <h3>"I'm in a contract with my vendor."</h3>
+          <p>We don't do contracts. Test us alongside your current vendor. When you're ready, consolidate.</p>
         </div>
-        <div class="objection">
+        <div class="objection-card">
           <h3>"Sounds too cheap. What's the catch?"</h3>
-          <p>We're the data broker. No middleman. Your current vendor buys from someone like us and marks it up. We cut the middleman out.</p>
+          <p>We're the data broker. Your current vendor buys from someone like us and marks it up.</p>
         </div>
-        <div class="objection">
+        <div class="objection-card">
           <h3>"I've been burned by vendors before."</h3>
-          <p>Month-to-month. No commitment. Cancel anytime. No wallet balance you lose. No data held hostage. The data speaks for itself.</p>
+          <p>Month-to-month. No commitment. No wallet balance held hostage. No data lock-in.</p>
         </div>
-        <div class="objection">
-          <h3>"My current vendor doesn't have credit or income data."</h3>
-          <p>Most don't. We include credit score range and household income on every record. Filter before you export &mdash; only pull prospects who can actually qualify.</p>
+        <div class="objection-card">
+          <h3>"No credit or income data elsewhere."</h3>
+          <p>We include credit score range and household income on every record. Filter before you export.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 9: WHO THIS IS FOR / NOT FOR
-       Rosier: 4-Step Clarify — "Who it's for / not for"
-       Haynes: Broky Bait qualification
-       ============================================ -->
+  <!-- WHO THIS IS FOR / NOT FOR (Virtual Sales Builder pattern) -->
   <section class="qualifier">
     <div class="container">
+      <h2 class="section-heading">We're Not for Everyone &mdash; And That's by Design.</h2>
       <div class="qualifier-grid">
         <div class="qualifier-col qualifier-col--yes">
-          <h3>This is for you if:</h3>
+          <h3><span class="qual-icon qual-icon--yes">&check;</span> This is for you if:</h3>
           <ul>
             <li>You run 5+ agents on outbound</li>
             <li>You need 10,000+ records per month</li>
-            <li>You're spending $1,000+/month on data across vendors</li>
+            <li>You spend $1,000+/month on data across vendors</li>
             <li>You're in insurance, solar, mortgage, roofing, or debt</li>
             <li>You want to consolidate vendors, not add another one</li>
           </ul>
         </div>
         <div class="qualifier-col qualifier-col--no">
-          <h3>This is NOT for you if:</h3>
+          <h3><span class="qual-icon qual-icon--no">&times;</span> This is NOT for you if:</h3>
           <ul>
             <li>You're a solo agent dialing 50 numbers a day</li>
             <li>You need fewer than 1,000 records per month</li>
@@ -339,140 +433,46 @@
           </ul>
         </div>
       </div>
-      <p class="qualifier-redirect">Solo agent? <a href="https://solidbookedpro.com">Our standard plan starts at $0.04/record with no minimum. Go here.</a></p>
+      <p class="qualifier-redirect">Solo agent? <a href="https://solidbookedpro.com">Standard plan at $0.04/record, no minimum &rarr;</a></p>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 10: ANTI-GUARANTEE
-       Hormozi: Anti-Guarantee signals supreme confidence
-       Haynes: Rich buyers are SUSPICIOUS of guarantees
-       ============================================ -->
+  <!-- ANTI-GUARANTEE -->
   <section class="guarantee">
     <div class="container">
-      <div class="guarantee-content">
-        <div class="guarantee-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#0A2540" stroke="#00D4AA" stroke-width="2"/>
-            <path d="M24 32l6 6 12-12" stroke="#00D4AA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="guarantee-card">
+        <div class="guarantee-shield">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4L6 12v12c0 10.8 7.68 20.88 18 24 10.32-3.12 18-13.2 18-24V12L24 4z" fill="#0d2f4f" stroke="#00D4AA" stroke-width="2"/>
+            <path d="M18 24l4.5 4.5 9-9" stroke="#00D4AA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h2>No refunds. No contracts. No guarantees needed.</h2>
-        <p>We don't offer a money-back guarantee. We don't need one. The data speaks for itself.</p>
-        <p>Month-to-month. Cancel anytime. No lock-in. No wallet balance held hostage. No 60-day cancellation notice. No auto-renewal surprises.</p>
-        <p><strong>If the data doesn't perform, you leave. That's your guarantee.</strong></p>
+        <h2>No Refunds. No Contracts.<br>No Guarantees Needed.</h2>
+        <p>The data speaks for itself. Month-to-month. Cancel anytime. No lock-in. No wallet balance held hostage. No 60-day cancellation notice.</p>
+        <p class="guarantee-bold">If the data doesn't perform, you leave. That's your guarantee.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SECTION 11: TYPEFORM QUALIFICATION
-       Haynes: TypeForm + Calendly = High Ticket Call Funnel
-       Pixel conditioning: only fire conversion on qualified leads
-       ============================================ -->
-  <section class="qualify" id="qualify">
-    <div class="container">
-      <div class="qualify-content">
-        <h2>See if the Volume Platform is right for your operation.</h2>
-        <p>Answer 4 questions. Takes 60 seconds. If you qualify, you'll get the option to book a call or access the platform directly.</p>
-
-        <div class="typeform-embed" id="typeform-container">
-          <!-- Replace data-url with your actual TypeForm URL -->
-          <div class="typeform-placeholder">
-            <form class="qualify-form" id="qualify-form">
-              <div class="form-step active" data-step="1">
-                <label>How many agents are on your outbound team?</label>
-                <div class="form-options">
-                  <button type="button" class="form-option" data-value="1-4">1 &ndash; 4</button>
-                  <button type="button" class="form-option" data-value="5-10">5 &ndash; 10</button>
-                  <button type="button" class="form-option" data-value="11-25">11 &ndash; 25</button>
-                  <button type="button" class="form-option" data-value="25+">25+</button>
-                </div>
-              </div>
-
-              <div class="form-step" data-step="2">
-                <label>How many records do you need per month?</label>
-                <div class="form-options">
-                  <button type="button" class="form-option" data-value="under-10k">Under 10,000</button>
-                  <button type="button" class="form-option" data-value="10k-50k">10,000 &ndash; 50,000</button>
-                  <button type="button" class="form-option" data-value="50k-100k">50,000 &ndash; 100,000</button>
-                  <button type="button" class="form-option" data-value="100k+">100,000+</button>
-                </div>
-              </div>
-
-              <div class="form-step" data-step="3">
-                <label>What's your current monthly data spend?</label>
-                <div class="form-options">
-                  <button type="button" class="form-option" data-value="under-1k">Under $1,000</button>
-                  <button type="button" class="form-option" data-value="1k-2.5k">$1,000 &ndash; $2,500</button>
-                  <button type="button" class="form-option" data-value="2.5k-5k">$2,500 &ndash; $5,000</button>
-                  <button type="button" class="form-option" data-value="5k+">$5,000+</button>
-                </div>
-              </div>
-
-              <div class="form-step" data-step="4">
-                <label>What industry are you in?</label>
-                <div class="form-options">
-                  <button type="button" class="form-option" data-value="insurance">Insurance</button>
-                  <button type="button" class="form-option" data-value="solar">Solar</button>
-                  <button type="button" class="form-option" data-value="mortgage">Mortgage / Debt</button>
-                  <button type="button" class="form-option" data-value="roofing">Roofing / Home Services</button>
-                  <button type="button" class="form-option" data-value="re-investing">RE Investing</button>
-                  <button type="button" class="form-option" data-value="other">Other</button>
-                </div>
-              </div>
-
-              <!-- Qualified result -->
-              <div class="form-result form-result--qualified" id="result-qualified">
-                <h3>You qualify for the Volume Platform.</h3>
-                <p>Based on your operation size, we can likely cut your per-record cost while giving you 10x the data fields. Pick your next step:</p>
-                <div class="result-actions">
-                  <a href="#" class="btn btn--primary">Book a 15-Min Call</a>
-                  <a href="#" class="btn btn--secondary">Access the Platform Now</a>
-                </div>
-              </div>
-
-              <!-- Not qualified result -->
-              <div class="form-result form-result--redirect" id="result-redirect">
-                <h3>Our standard plan is a better fit.</h3>
-                <p>Based on your volume, our self-serve platform at $0.04/record with no minimums is the right starting point. Same data quality, built for smaller operations.</p>
-                <a href="https://solidbookedpro.com" class="btn btn--secondary">Go to Standard Plan</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SECTION 12: FINAL CTA
-       Haynes: Permission CTA
-       ============================================ -->
+  <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
-      <h2>Your team will dial another 10,000 numbers this week.</h2>
-      <p>The only question is whether 40% of them will be dead &mdash; or whether you'll do something about it before Monday.</p>
-      <a href="#qualify" class="btn btn--primary btn--lg">See If You Qualify</a>
+      <h2>Your Team Will Dial Another 10,000 Numbers This Week.</h2>
+      <p>The only question is whether 40% will be dead &mdash; or whether you'll do something about it before Monday.</p>
+      <a href="#qualify" class="btn btn--primary btn--lg">See If You Qualify <span>&rarr;</span></a>
       <p class="final-micro">60 seconds. No commitment. No sales pitch unless you ask for one.</p>
     </div>
   </section>
 
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
+  <!-- MOBILE STICKY CTA (LeO pattern) -->
+  <div class="mobile-sticky" id="mobile-sticky">
+    <a href="#qualify" class="btn btn--primary btn--sticky">See If You Qualify <span>&rarr;</span></a>
+  </div>
+
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="logo">BookedSolid<span>Pro</span></div>
-          <p class="footer-tagline">The volume data platform for outbound operations.</p>
-        </div>
-        <div>
-          <p class="footer-legal">solidbookedpro.com</p>
-          <p class="footer-legal">No contracts. Month-to-month. Cancel anytime.</p>
-        </div>
-      </div>
+    <div class="container footer-inner">
+      <div class="logo">BookedSolid<span class="logo-accent">Pro</span></div>
+      <p>solidbookedpro.com &middot; No contracts. Month-to-month. Cancel anytime.</p>
     </div>
   </footer>
 
